@@ -64,4 +64,6 @@ Keyboard Inputs:
 
 Acknowledgements
 ---
-This code runs heavily off of ENVIRO (https://github.com/klavinslab/enviro) and would like to thank Professor Klavins for his simulator and guidance and enthusiam for this project, Also to the TA's for their help and guidance. This project was completed as part of the University of Washington course EE P 520: Software Engineering for Embedded Applications
+This code runs heavily off of ENVIRO (https://github.com/klavinslab/enviro) and would like to thank Professor Klavins for his simulator and guidance and enthusiam for this project, Also to the TA's for their help and guidance. 
+
+This project was also completed as part of the University of Washington curriculum EE P 520: Software Engineering for Embedded Applications
