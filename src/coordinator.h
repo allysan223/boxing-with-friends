@@ -12,6 +12,7 @@ class CoordinatorController : public Process, public AgentInterface {
 
     public:
     CoordinatorController() : Process(), AgentInterface(), playerCount(1), index(0) {
+        //initialize color of players
         fillColor.push_back("lightcoral"); 
         fillColor.push_back("paleturquoise"); 
         fillColor.push_back("sandybrown"); 
@@ -25,16 +26,11 @@ class CoordinatorController : public Process, public AgentInterface {
                 a.set_client_id(e.value()["client_id"]);
                 x += 50;
                 a.label("P"+to_string(playerCount), -8, -20 );
-                // Agent& health = add_agent("HealthBar", -600, y, 0, {{"fill","gray"},{"stroke","black"}});
-                // std::cout << e.value()["client_id"] << "\n";
-                // healthID = e.value()["client_id"].get<std::string>()+"health";
-                // std::cout << healthID << "\n";
-                // health.set_client_id(healthID);
                 playerCount++;
                 a.teleport(x,100,0);
             }
             index++;
-            if (index == 3)
+            if (index == fillColor.size())
                 index = 0;
         });
     }

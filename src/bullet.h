@@ -11,6 +11,7 @@ class BulletController : public Process, public AgentInterface {
     BulletController() : Process(), AgentInterface() {}
 
     void init() {
+        //Remove ghost if hit by bullet
         notice_collisions_with("Ghost", [&](Event &e) {
             remove_agent(e.value()["id"]);
             remove_agent(id());
@@ -18,6 +19,7 @@ class BulletController : public Process, public AgentInterface {
     }
     void start() {}
     void update() {
+        //remove bullet if hit by wall or object
         if (  abs(vx()) < 2 ) {
             remove_agent(id());
         }

@@ -14,14 +14,9 @@ class GhostController : public Process, public AgentInterface {
         counter = 0;
         prevent_rotation();
         notice_collisions_with("Guy", [&](Event &e) {
-            teleport(0,135,0);
-        });
-        // notice_collisions_with("Bumper", [&](Event &e) {
-        //     if ( counter == 0 ) {
-        //       vx = -vx;
-        //       counter = 10;
-        //     }
-        // });    
+            Agent& player = find_agent(e.value()["id"]); 
+            player.teleport(0,135,0);
+        });   
         std::cout << "ghost start \n";
         decorate(R"(<g>
             <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
