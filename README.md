@@ -40,7 +40,7 @@ src/
 
 Installing & Running
 ---
-This code assumes the user has docker installed and ENVIRO running and was written at version 1.61.
+This process assumes the user has docker installed and ENVIRO running and was written at version 1.61.
 
 Once in Docker, navigate to the code directory and run the following commands:
 ```
