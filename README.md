@@ -4,7 +4,7 @@ A local multiplayer platform/shooter game
 
 Overview & Goals:
 ---
-Boxing With Friends is an interactive local multiplayer game where the player's goal is to be the first to get to the star and be crowned winner. Players are controlled using keyboard inputs such as "W", "A", "D" to move around the map and the spacebar to shoot bullets. Each player has a health bar, which when empty teleports them back to the start of the map. There is also a ghost which can teleport the player back to the start.
+Boxing With Friends is an interactive local multiplayer game where the player's goal is to be the first to get to the star and be crowned winner. Players are controlled using keyboard inputs to move around the map and shoot bullets. Each player has a health bar, which when empty, teleports them back to the start of the map. Run into the ghost and it'll also bring the player back to the start.
 
 Catch the star and you win!
 
