@@ -24,11 +24,12 @@ class GhostController : public Process, public AgentInterface {
             remove_agent(e.value()["id"]); //remove bullet
             remove_agent(id()); //remove ghost
         });  
-
+        
         //eyes for ghost
         decorate(R"(<g>
             <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
             <circle cx=5 cy=-3 r=2 style='fill:black'></circle></g>)");
+        label("BOO!", -15, -20);
     }
 
     void start() {}

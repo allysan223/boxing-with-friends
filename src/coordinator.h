@@ -12,7 +12,7 @@ class CoordinatorController : public Process, public AgentInterface {
 
     public:
     CoordinatorController() : Process(), AgentInterface(), playerCount(1), index(0), ghostID(0) {
-        //initialize color of players
+        //initialize colors of player to rotate with
         fillColor.push_back("lightcoral"); 
         fillColor.push_back("paleturquoise"); 
         fillColor.push_back("sandybrown"); 
@@ -41,8 +41,8 @@ class CoordinatorController : public Process, public AgentInterface {
     }
     void start() {}
     void update() {
+        //respawn ghost a little bit after it has been shot
         if (!agent_exists(ghostID)){
-            std::cout << "GHOST REMOVED \n";
             respawnCounter--;
             if (respawnCounter == 0){
                 Agent& ghost = add_agent("Ghost",0,80,0,GHOST_STYLE);

@@ -166,11 +166,11 @@ class GuyController : public Process, public AgentInterface {
     const double VEL_X = 25;
     const double JUMP_F = -2200;
     const double K_X = 15;
-    const double G = 500; 
+    const double G = 450; 
     const double H_MIN = 1.0;
     const json BULLET_STYLE = { 
-                   {"fill", "slategrey"}, 
-                   {"stroke", "#888"}, 
+                   {"fill", "tomato"}, 
+                   {"stroke", "red"}, 
                    {"strokeWidth", "5px"},
                    {"strokeOpacity", "0.25"}
                };
