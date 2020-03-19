@@ -11,6 +11,7 @@ Catch the star and you win!
 The goal of this project was to utilize various functions of ENVIRO such as:
  - Motion Control: Apply force to agents and teleportation
  - Collisions: Manages when players 'collide' with a ghost or bullet
+ - Connection: Allow multiple players to join
  - Agent Management: Adding and removing agents
  - Styling: Adding labels and decorations to agents
  
