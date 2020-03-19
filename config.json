@@ -1,6 +1,6 @@
 {
 
-    "name": "My Enviro Project",
+    "name": "Get to the star!",
     "ip": "0.0.0.0",
     "port": 8765,
     "buttons": [],
@@ -9,7 +9,7 @@
 
         {
             "definition": "defs/ghost.json",
-            "style": { "fill": "lightgreen", "stroke": "black" },
+            "style": { "fill": "ghostwhite", "stroke": "black", "strokeWidth": "2px", "strokeOpacity": "0.25"  },
             "position": {
                 "x": 0, 
                 "y": 80, 
