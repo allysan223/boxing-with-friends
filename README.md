@@ -15,6 +15,8 @@ The goal of this project was to utilize various functions of ENVIRO such as:
  - Agent Management: Adding and removing agents
  - Styling: Adding labels and decorations to agents
  
+ ![](enviro_shooter_demo.gif)
+ 
 
 Addressing Key Challenges
 ---
