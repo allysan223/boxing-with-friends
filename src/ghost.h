@@ -19,6 +19,12 @@ class GhostController : public Process, public AgentInterface {
             player.teleport(0,135,0);
         });   
 
+        //Remove ghost if hit by bullet
+        notice_collisions_with("Bullet", [&](Event &e) {
+            remove_agent(e.value()["id"]); //remove bullet
+            remove_agent(id()); //remove ghost
+        });  
+
         //eyes for ghost
         decorate(R"(<g>
             <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
@@ -39,12 +45,15 @@ class GhostController : public Process, public AgentInterface {
             vx = -vx;
             counter = 10;
         }
+            
+
     }
 
     void stop() {}
 
     double vx;
     int counter;
+
 
 };
 

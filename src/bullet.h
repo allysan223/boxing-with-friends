@@ -11,11 +11,7 @@ class BulletController : public Process, public AgentInterface {
     BulletController() : Process(), AgentInterface() {}
 
     void init() {
-        //Remove ghost if hit by bullet
-        notice_collisions_with("Ghost", [&](Event &e) {
-            remove_agent(e.value()["id"]);
-            remove_agent(id());
-        });           
+         
     }
     void start() {}
     void update() {

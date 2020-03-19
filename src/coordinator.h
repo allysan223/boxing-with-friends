@@ -11,11 +11,13 @@ using namespace std;
 class CoordinatorController : public Process, public AgentInterface {
 
     public:
-    CoordinatorController() : Process(), AgentInterface(), playerCount(1), index(0) {
+    CoordinatorController() : Process(), AgentInterface(), playerCount(1), index(0), ghostID(0) {
         //initialize color of players
         fillColor.push_back("lightcoral"); 
         fillColor.push_back("paleturquoise"); 
         fillColor.push_back("sandybrown"); 
+
+        respawnCounter = 50;
     }
 
     void init() {
@@ -38,13 +40,29 @@ class CoordinatorController : public Process, public AgentInterface {
         });
     }
     void start() {}
-    void update() {}
+    void update() {
+        if (!agent_exists(ghostID)){
+            std::cout << "GHOST REMOVED \n";
+            respawnCounter--;
+            if (respawnCounter == 0){
+                Agent& ghost = add_agent("Ghost",0,80,0,GHOST_STYLE);
+                ghostID = ghost.get_id();
+                respawnCounter = 50;
+            }
+        }
+    }
     void stop() {}
 
     double x = -150;
-    int playerCount, index;
+    int playerCount, index, ghostID, respawnCounter;
     std::string healthID;
     vector<std::string> fillColor;
+    const json GHOST_STYLE = { 
+                   {"fill", "ghostwhite"}, 
+                   {"stroke", "black"}, 
+                   {"strokeWidth", "2px"},
+                   {"strokeOpacity", "0.25"}
+               };
 
 };
 
