@@ -52,7 +52,7 @@ enviro
 
 Then navigate to `http://localhost` and a map should be displayed with your player added into the game.
 
-To have other players join your game session, look up your local IP address and have your friends input that into their browser.
+To have other players join your game session, look up the local IP address on your computer and have your friends input that into their browser. You could also open `http://localhost` in another browser to start another player instance.
 
 Controlling your player
 ---
