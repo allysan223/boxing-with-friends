@@ -33,7 +33,7 @@ class GuyController : public Process, public AgentInterface {
     }
 
     void reset_health(){
-        healthCounter++;
+        healthCounter = 1;
     }
 
     void init() {
@@ -85,9 +85,7 @@ class GuyController : public Process, public AgentInterface {
             }
         });     
         
-        notice_collisions_with("Ghost", [&](Event &e) {
-            teleport(0,135,0);
-        });
+
               
     }
     void start() {}
