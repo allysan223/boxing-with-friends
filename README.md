@@ -57,10 +57,15 @@ To have other players join your game session, look up your local IP address and 
 Controlling your player
 ---
 Keyboard Inputs:
+
  `W`: Jump
+ 
  `A`: Move Left
+ 
  `D`: Move Right
+ 
  SPACEBAR: Shoot Bullet
+ 
 
 Acknowledgements
 ---
