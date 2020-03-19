@@ -13,11 +13,13 @@ class GhostController : public Process, public AgentInterface {
     void init() {
         counter = 0;
         prevent_rotation();
+        //teleport player back to start if they run into the ghost
         notice_collisions_with("Guy", [&](Event &e) {
             Agent& player = find_agent(e.value()["id"]); 
             player.teleport(0,135,0);
         });   
-        std::cout << "ghost start \n";
+
+        //eyes for ghost
         decorate(R"(<g>
             <circle cx=-5 cy=-3 r=2 style='fill:black'></circle>
             <circle cx=5 cy=-3 r=2 style='fill:black'></circle></g>)");

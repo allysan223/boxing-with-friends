@@ -33,6 +33,7 @@ class GuyController : public Process, public AgentInterface {
     }
 
     void reset_health(){
+        //index for health bar values
         healthCounter = 1;
     }
 
@@ -40,10 +41,10 @@ class GuyController : public Process, public AgentInterface {
         reset_health();
         prevent_rotation();
         watch("keydown", [&](Event& e) {
+            //check if client id matches
             if ( e.value()["client_id"] == get_client_id() ) {
-                //auto k = e.value()["key"].get<std::string>();
                 std::string k = e.value()["key"];
-                //shoot bullet in appropiate dirrection
+                //shoot bullet in appropiate direction if spacebar entered
                 if ( k == " " ) {
                     if (prevState == "right"){
                     Agent& bullet = add_agent("Bullet", 
@@ -62,7 +63,7 @@ class GuyController : public Process, public AgentInterface {
                         bullet.apply_force(-50,0);
                     }
                     
-                    //firing = true;
+                //set movement for player based on input
                 } else if ( k == "w" && ! airborne() ) {
                     JUMP = true;
                 } else if ( k == "a" ) {
@@ -74,6 +75,8 @@ class GuyController : public Process, public AgentInterface {
                 } 
             }
         });
+
+        //stop movement for player when key released
         watch("keyup", [&](Event& e) {
             if ( e.value()["client_id"] == get_client_id() ) {
                 std::string k = e.value()["key"];
@@ -90,6 +93,7 @@ class GuyController : public Process, public AgentInterface {
     }
     void start() {}
     void update() {
+        //sometimes player will spawn stuck in middle of map? this makes it unstuck
         if (sensor_value(0) > 900)
             teleport(0,100,0);
 
@@ -117,7 +121,7 @@ class GuyController : public Process, public AgentInterface {
         omni_apply_force(fx,G+fy);
         JUMP = false;
 
-        //decorations
+        //decorations - eyes and health bar
         if (LEFT){ 
             decoration = "R\"(<g>"
                 "<rect x=-20 y=-40 width=" + health_len[10-healthCounter] + " height=5 fill=\"red\" />"
@@ -138,6 +142,7 @@ class GuyController : public Process, public AgentInterface {
         
         decorate(decoration);
         
+        //reduce health if hit by bulllet
         notice_collisions_with("Bullet", [&](Event &e) {
             remove_agent(e.value()["id"]);
             healthCounter++;
@@ -161,7 +166,7 @@ class GuyController : public Process, public AgentInterface {
     const double VEL_X = 25;
     const double JUMP_F = -2200;
     const double K_X = 15;
-    const double G = 500; //600
+    const double G = 500; 
     const double H_MIN = 1.0;
     const json BULLET_STYLE = { 
                    {"fill", "slategrey"}, 

@@ -19,12 +19,15 @@ class CoordinatorController : public Process, public AgentInterface {
     }
 
     void init() {
+        //Watches for new connection and adds a player if so
         watch("connection", [&](Event e) {
             if ( ! e.value()["client_id"].is_null() ) {
                 std::cout << "Connection from " << e.value() << "\n";
                 Agent& a = add_agent("Guy", x, 100, 0, {{"fill",fillColor[index]},{"stroke","black"}});
+                //sets unique client-id
                 a.set_client_id(e.value()["client_id"]);
                 x += 50;
+                //label for player name
                 a.label("P"+to_string(playerCount), -8, -20 );
                 playerCount++;
                 a.teleport(x,100,0);
