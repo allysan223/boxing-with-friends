@@ -6,6 +6,8 @@ Overview & Goals:
 ---
 Boxing With Friends is an interactive local multiplayer game where the player's goal is to be the first to get to the star and be crowned winner. Players are controlled using keyboard inputs such as "W", "A", "D" to move around the map and the spacebar to shoot bullets. Each player has a health bar, which when empty teleports them back to the start of the map. There is also a ghost which can teleport the player back to the start.
 
+Catch the star and you win!
+
 The goal of this project was to utilize various functions of ENVIRO such as:
  - Motion Control: Apply force to agents and teleportation
  - Collisions: Manages when players 'collide' with a ghost or bullet
@@ -38,11 +40,28 @@ src/
 Installing & Running
 ---
 README describes how to install and run the code (assuming the user has docker installed)
+This code assumes the user has docker installed and ENVIRO running and was written at version 1.61.
 
-Using boxing-with-friends
+Once in Docker, navigate to the code directory and run the following commands:
+```
+esm start
+make clean
+make 
+enviro
+```
+
+Then navigate to `http://localhost` and a map should be displayed with your player added into the game.
+
+To have other players join your game session, look up your local IP address and have your friends input that into their browser.
+
+Controlling your player
 ---
-README describes how to run and/or use the project
+Keyboard Inputs:
+ `W`: Jump
+ `A`: Move Left
+ `D`: Move Right
+ SPACEBAR: Shoot Bullet
 
 Acknowledgements
 ---
-README acknowedges all sources of information or code used
+This code runs heavily off of ENVIRO (https://github.com/klavinslab/enviro) and would like to thank Professor Klavins for his simulator and guidance and enthusiam for this project, Also to the TA's for their help and guidance. This project was completed as part of the University of Washington course EE P 520: Software Engineering for Embedded Applications
